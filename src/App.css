@@ -13,3 +13,14 @@
     align-items: center;
     justify-content: space-between;
 }
+@media screen and (max-width: 1024px) {
+    .img__cards__wrapper {
+        padding: 30px 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .img__cards__wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

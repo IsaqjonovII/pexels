@@ -20,15 +20,20 @@
   cursor: pointer;
 }
 
+.navbar__actions {
+  width: 100%;
+  max-width: 700px;
+}
+
 .search__input__wrapper {
   width: 100%;
-  max-width: 400px;
+  margin-right: 20px;
   height: 50px;
   border: 1px solid #ccc;
   border-radius: 8px;
 }
 
-input {
+.search__input {
   flex: 1;
   height: 100%;
   border: none;
@@ -40,12 +45,12 @@ input {
   background: transparent;
 }
 
-::placeholder {
+.search__input::placeholder {
   color: #ccc;
   font-size: 14px;
 }
 
-button {
+.search__btn {
   width: 50px;
   height: 100%;
   border-radius: 0 8px 8px 0;
@@ -53,4 +58,35 @@ button {
   color: #fff;
   font-size: 18px;
   background-color: #02A281;
+}
+
+.user__profile {
+  width: 50px;
+  height: 100%;
+  justify-content: center;
+}
+
+.user {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .navbar {
+    padding: 8px 10px;
+  }
+  .navbar__actions {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 625px){
+  .navbar__actions {
+    max-width: 350px;
+  }
+  
+  .search__input__wrapper {
+    margin-right: 10px;
+    height: 40px;
+  }
 }

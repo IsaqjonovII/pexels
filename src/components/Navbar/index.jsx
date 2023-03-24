@@ -15,20 +15,29 @@ const Navbar = ({ value, handleSearch }) => {
         </Link>
       </div>
 
-      <div className={`${c.search__input__wrapper} flex`}>
-        <input
-          type="text"
-          placeholder="Search for images..."
-          value={value}
-          onChange={handleSearch}
-        />
-        <button onClick={handleSearchBtn}>
-          <BsSearch />
-        </button>
-      </div>
+      <div className={`${c.navbar__actions} flex`}>
+        <div className={`${c.search__input__wrapper} flex`}>
+          <input
+            className={c.search__input}
+            type="text"
+            placeholder="Search for images..."
+            value={value}
+            onChange={handleSearch}
+          />
+          <button className={c.search__btn} onClick={handleSearchBtn}>
+            <BsSearch />
+          </button>
+        </div>
 
-      <div className={`${c.user__profile} flex`}>
-        
+        <div className={`${c.user__profile} flex`}>
+          <Link to="/profile">
+            <img
+              className={c.user}
+              src="https://api.dicebear.com/5.x/adventurer/svg?size=48&hair=short16&seed=Aneka"
+              alt="user profile image"
+            />
+          </Link>
+        </div>
       </div>
     </div>
   );

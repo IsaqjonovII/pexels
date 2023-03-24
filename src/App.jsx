@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { baseURL } from "./api";
 import Navbar from "./components/Navbar";
@@ -25,11 +25,9 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  useState(() => {
+  useEffect(() => {
     fetchImages();
   }, []);
-
-  console.log(images);
 
   return (
     <div className="App">
