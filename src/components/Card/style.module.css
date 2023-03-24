@@ -1,0 +1,68 @@
+.card {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;
+}
+
+.card__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.img__actions {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 6px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    place-items: center;
+}
+
+.img__details {
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 6px;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #00000061;
+    box-shadow: 0px -10px 15px #00000062;
+    padding: 0 20px;
+}
+
+.card:hover .img__details {
+    display: flex;
+}
+
+.card:hover .img__actions {
+    display: grid;
+}
+
+.download__btn {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    color: #000;
+    font-size: 20px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+}
+
+.download__btn:hover {
+    border: 2px solid #02A281;
+    color: #02A281;
+    cursor: pointer;
+}

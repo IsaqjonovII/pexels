@@ -1,0 +1,15 @@
+.img__cards__wrapper {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    padding: 30px 40px;
+    grid-gap: 20px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
