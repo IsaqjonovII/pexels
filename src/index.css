@@ -5,6 +5,8 @@
 }
 .img__cards__wrapper {
   width: 100%;
+  max-width: 1550px;
+  margin: auto;
   height: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
