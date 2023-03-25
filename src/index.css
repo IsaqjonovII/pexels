@@ -3,3 +3,30 @@
   padding: 0;
   box-sizing: border-box;  
 }
+.img__cards__wrapper {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.no__data--label {
+  font-size: 20px;
+  color: #020202;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+@media screen and (max-width: 800px) {
+  .img__cards__wrapper {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
