@@ -4,6 +4,7 @@ import c from "./style.module.css";
 import axios from "axios";
 import { baseURL } from "../../api";
 import RenderCards from "../../components/RenderCards";
+import Loader from "../../components/Loader";
 
 const Home = () => {
   const [images, setImages] = useState([]);
@@ -56,6 +57,10 @@ const Home = () => {
 
   const handlePrevPage = () => setCurrentPage(currentPage - 1);
   const handleNextPage = () => setCurrentPage(currentPage + 1);
+
+  if (!images.length) {
+    return <Loader />;
+  }
 
   return (
     <div className={c.home}>
