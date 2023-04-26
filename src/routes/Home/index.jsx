@@ -12,27 +12,22 @@ const Home = () => {
   const [searchInputValue, setsearchInputValue] = useState("");
   const [searchedResults, setsearchedResults] = useState([]);
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      const response = await axios.get(`${baseURL}popular`, {
-        method: "GET",
-        headers: {
-          Authorization:
-            "9CwiJeuPJUoaAmMSUZy3dwAT0d9OBO7Ab0SbnbkRM7gNfubbcnwZCCWe",
-        },
-        params: {
-          page: currentPage,
-          per_page: perPage,
-        },
-      });
+  const fetchImages = async () => {
+    const response = await axios.get(`${baseURL}popular`, {
+      method: "GET",
+      headers: {
+        Authorization:
+          "9CwiJeuPJUoaAmMSUZy3dwAT0d9OBO7Ab0SbnbkRM7gNfubbcnwZCCWe",
+      },
+      params: {
+        page: currentPage,
+        per_page: perPage,
+      },
+    });
+    setImages(response.data.photos);
+  };
 
-      setImages(response.data.photos);
-    };
-    fetchImages();
-  }, [currentPage, perPage]);
-
-  const handleSearchBtn = async (e) => {
-    e?.preventDefault();
+  const searchImages = async () => {
     if (searchInputValue) {
       const response = await axios.get(`${baseURL}search`, {
         method: "GET",
@@ -51,8 +46,17 @@ const Home = () => {
   };
 
   useEffect(() => {
-    handleSearchBtn();
+    fetchImages();
   }, [currentPage, perPage]);
+
+  useEffect(() => {
+    searchImages();
+  }, [currentPage, perPage, searchInputValue]);
+
+  const handleSearchBtn = (e) => {
+    e?.preventDefault();
+    searchImages();
+  };
 
   const handlePrevPage = () => setCurrentPage(currentPage - 1);
   const handleNextPage = () => setCurrentPage(currentPage + 1);
@@ -61,7 +65,10 @@ const Home = () => {
     <div className={c.home}>
       <form
         className={`${c.search__input__wrapper} flex`}
-        onSubmit={handleSearchBtn}
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSearchBtn();
+        }}
       >
         <input
           className={c.search__input}
@@ -78,14 +85,18 @@ const Home = () => {
           <BsSearch />
         </button>
       </form>
-
-      {searchInputValue.trim() ? (
+      {!images.length && (
+        <>
+          <p>No results</p>
+        </>
+      )}
+      {searchInputValue.trim() !== "" ? (
         <RenderCards data={searchedResults} />
       ) : (
         <RenderCards data={images} />
       )}
 
-      {images.length && (
+      {images.length > 0 && (
         <div className={`${c.pagination} flex`}>
           <button
             className={c.btn}
@@ -94,6 +105,7 @@ const Home = () => {
           >
             previous
           </button>
+          <span className={c.currentpage__text}>{currentPage}</span>
           <button className={c.btn} onClick={handleNextPage}>
             next
           </button>

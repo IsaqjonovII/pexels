@@ -1,7 +1,7 @@
 import React from "react";
 import { BsHeart, BsDownload } from "react-icons/bs";
 import c from "./style.module.css";
-import { saveAs } from "file-saver"
+import { saveAs } from "file-saver";
 
 const Card = ({ id, src: { original, portrait }, alt, photographer }) => {
   const handleDownload = () => {
@@ -10,13 +10,13 @@ const Card = ({ id, src: { original, portrait }, alt, photographer }) => {
       .then((blob) => saveAs(blob, "dowloaded-img.jpg"))
       .catch((err) => console.log(err));
   };
+
   return (
     <div className={c.card}>
       <div className={c.img__actions}>
         <BsHeart />
       </div>
-
-      <a href={original} target="_blank" download="GPT" > <img className={c.card__img} src={portrait} alt={alt} /></a>
+      <img className={c.card__img} src={portrait} alt={alt} />
       <div className={c.img__details}>
         <div className={c.avatar__wrapper}>
           <div className={c.author__avatar}></div>

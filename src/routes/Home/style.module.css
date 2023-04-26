@@ -13,6 +13,19 @@
   border-radius: 8px;
 }
 
+.currentpage__text {
+  padding: 10px 15px;
+  font-size: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.currentpage__text:hover {
+  background-color: #02A281;
+  color: #fff;
+}
+
 .search__input {
   flex: 1;
   height: 100%;
